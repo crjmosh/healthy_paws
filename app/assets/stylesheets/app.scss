@@ -21,3 +21,18 @@ input:focus {
 html {
 	font-family: 'Nunito', sans-serif;
 }
+
+.flash {
+	width: 100%;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+}
+
+.flash.notice {
+	background-color: #00c853;
+}
+
+.flash.alert {
+	background-color: #d50000;
+}
