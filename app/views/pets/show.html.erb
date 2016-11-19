@@ -2,23 +2,45 @@
 <div class="row center">
   <div class="col s12">
     <div class="card-panel">
+    	<%= link_to '<< Back to All Pets', pets_path, class: 'left' %> <br />
     	<h3 class="light-blue-text text-darken-3"><%= @pet.name %></h3>
     	<%= cl_image_tag(@pet.picture.path, { size:'200x200', crop: :thumb, gravity: :face}) %>
-      <p>Date of Birth: <%= @pet.dob.strftime("%B %d, %Y") %></p>
-			<p>Gender: <%= @pet.gender %></p>
-			<p>Breed: <%= @pet.breed %></p>
-			<p>Microchip: <%= @pet.microchip %></p>
-			<p>Primary Vet: <%= @pet.primary_vet %></p>
-			<p>Spayed/Neutered? <%= @pet.fixed ? "Yes" : "No" %></p>
-			<p>Notes:<br /><i><%= @pet.notes %></i></p>
+      <div class="row">
+      	<div class="col s12 m6">
+		      <p><b class="light-blue-text text-darken-3">Date of Birth:</b> <%= @pet.dob.strftime("%B %d, %Y") %></p>
+	      </div>
 
-			<div class="row">
+	      <div class="col s12 m6">
+					<p><b class="light-blue-text text-darken-3">Gender:</b> <%= @pet.gender %></p>
+				</div>
+
+				<div class="col s12 m6">
+					<p><b class="light-blue-text text-darken-3">Breed:</b> <%= @pet.breed %></p>
+				</div>
+
+				<div class="col s12 m6">
+					<p><b class="light-blue-text text-darken-3">Spayed/Neutered?</b> <%= @pet.fixed ? "Yes" : "No" %></p>
+				</div>
+
+				<div class="col s12 m6">
+					<p><b class="light-blue-text text-darken-3">Microchip:</b> <%= @pet.microchip %></p>
+				</div>
+
+				<div class="col s12 m6">
+					<p><b class="light-blue-text text-darken-3">Primary Vet:</b> <%= @pet.primary_vet %></p>
+				</div>
+
+				<div class="col s12">
+					<p><b class="light-blue-text text-darken-3">Notes:</b><br /><i><%= @pet.notes %></i></p>
+					<br />
+				</div>
+
 				<div class="col s12">
 				<%= link_to 'Edit Pet', edit_pet_path(@pet), class: 'btn light-blue darken-3' %>
 				<%= link_to 'Remove Pet', pet_path(@pet), class: 'btn light-blue darken-3', method: :delete, data: {confirm: 'Really remove this pet? This action cannot be undone.'} %>
+				<br /><br />
 				</div>
 
-				<br><br><br>
 	    	
 	    	<div class="col s6">
 					<%= link_to 'View Appointments', pet_appointments_path(@pet), class: 'btn light-blue darken-3' %>
