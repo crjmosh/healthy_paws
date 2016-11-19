@@ -1,21 +1,25 @@
 <h1 class="center">Welcome, <%= current_user.first_name %>!</h1>
 
 <% if @pets.any? %>
+	<h3>Your Pets:</h3>
 	<div class="col s12 m7">
 	<% @pets.each do |pet| %>
-    <h2 class="header"><%= pet.name %></h2>
     <div class="card horizontal">
       <div class="card-image">
 	    	<% if pet.picture? %>
-	        <img src="http://lorempixel.com/100/190/nature/6">
+	        <%= cl_image_tag(pet.picture.path, { size:'250x250', crop: :thumb, gravity: :face}) %>
       	<% end %>
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p>Pet info.</p>
+          <h4 class="light-blue-text text-darken-3"><%= pet.name %></h4>
+          <p>Breed: <%= pet.breed %></p>
+          <p>Date of Birth: <%= pet.dob %></p>
+          <p>Primary Vet: <%= pet.primary_vet %></p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <%= link_to 'View Details', pet_path(pet) %> | 
+          <%= link_to 'Edit Pet', edit_pet_path(pet) %>
         </div>
       </div>
     </div>

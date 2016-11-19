@@ -44,15 +44,19 @@
 			<%= f.select :fixed, options_for_select(['yes', 'no']) %>
 		</div>
 
-		<div class="col s12 l8 offset-l2">
+		<div class="col s12 l10 offset-l1">
 			<%= f.label :notes %>
 			<%= f.text_area :notes %>
+			<br /><br />
 		</div>
 
-		<div class="col s12 m6">
+		<div class="col s12 m6 center">
 		<%= f.label :picture %>
 		<%= f.attachinary_file_field :picture %>
+		<br /><br />
 		</div>
+
+		<br />
 
 		<div class="center col s12">
 			<%= f.submit class: "btn light-blue darken-3" %>
