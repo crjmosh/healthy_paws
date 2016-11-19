@@ -9,7 +9,8 @@
         <div class="collapsible-body">
           <p>Notes: <%= medical.notes %></p>
           <%= link_to 'Edit', edit_pet_medical_path(@pet, medical), class: 'btn blue darken-3' %>
-          <%= link_to 'Delete', pet_medical_path(@pet, medical), method: :delete, data: {confirm: 'Really Delete?'}, class: 'btn blue darken-3' %>
+          <%= link_to 'Delete', pet_medical_path(@pet, medical), method: :delete, data:
+          {confirm: 'Really remove selected history? This action cannot be undone'}, class: 'btn blue darken-3' %>
         </div>
       </li>
     <% end %>
@@ -20,6 +21,6 @@
 
 <%= link_to "Add Medical History", new_pet_medical_path(@pet), class: 'btn blue darken-3' %>
 <br />
-<%= link_to "#{@pet.name.pluralize} Appointments", pet_appointments_path(@pet), class: 'btn blue darken-3' %>
+<%= link_to "View Appointments", pet_appointments_path(@pet), class: 'btn blue darken-3' %>
 <br />
 <%= link_to "My Pets", pets_path, class: 'btn blue darken-3' %>
