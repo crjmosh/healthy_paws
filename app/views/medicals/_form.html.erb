@@ -1,0 +1,20 @@
+<%= form_for [@pet, @medical] do |f| %>
+  <div class="input-field col s12 m6">
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true, required: true %>
+  </div>
+
+  <div class="input-field col s12 m6">
+    <%= f.label :date %>
+    <%= f.date_field :date, required: true %>
+  </div>
+
+  <div class="input-field col s12 m6">
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+
+  <div class="center">
+    <%= f.submit class: "btn" %>
+  </div>
+<% end %>

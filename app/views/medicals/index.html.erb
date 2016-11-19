@@ -1,2 +1,22 @@
-<h1>Medicals#index</h1>
-<p>Find me in app/views/medicals/index.html.erb</p>
+<h1> <%= @pet.name %> Medical Histroy </h1>
+<br />
+
+<% if @medicals.any? %>
+  <ul class="collapsible" data-collapsible="accordion">
+    <% @medicals.each do |medical| %>
+      <li>
+        <div class="collapsible-header"> <%= "#{medical.title}, #{medical.date}" %> </div>
+        <div class="collapsible-body">
+          <p>Notes: <%= medical.notes %></p>
+          <%= link_to 'Edit', edit_robot_part_path(@pet, medical), class: 'btn' %>
+          <%= link_to 'Delete', robot_part_path(@pet, medical), method: :delete, data: {confirm: 'Really Delete?'}, class: 'btn' %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>No Medical History, Please Create One!</h3>
+<% end %>
+
+<br />
+<%= link_to "My Pets", pets_path, class: 'btn' %>

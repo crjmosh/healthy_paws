@@ -1,2 +1,9 @@
-<h1>Medicals#show</h1>
-<p>Find me in app/views/medicals/show.html.erb</p>
+<h1> <%= @medical.title %> For <%= @pet.name %> </h1>
+<br />
+
+<p> Date: <%= @meidcal.date.strftime("%B %d, %Y") %> </p>
+<p> Notes: <%= @meidcal.notes %> </p>
+
+<%= link_to "#{@pet.name.pluralize} Medical History", pet_medicals_path(@pet), class: 'btn' %>
+<br />
+<%= link_to "My Pets", pets_path, class: 'btn' %>
