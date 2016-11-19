@@ -1,10 +1,7 @@
-<%= form_for @appointment do |f| %>
+<%= form_for [@pet, @appointment] do |f| %>
 
   <%= f.label :title %>
-  <%= f.text_field :title, required: true, placeholder: 'Title'  %>
-
-  <%= f.label :pet_id %>
-  <%= f.select :pet_id, options_for_select(@pet) %>
+  <%= f.text_field :title, required: true  %>
 
   <%= f.label :date %>
   <%= f.date_field :date, required: true, placeholder: 'Date' %>
@@ -13,13 +10,16 @@
   <%= f.time_field :time, placeholder: 'Time' %>
 
   <%= f.label :location %>
-  <%= f.text_area :location, placeholder: 'Location' %>
+  <%= f.text_area :location %>
 
   <%= f.label :notes %>
-  <%= f.text_area :notes, placeholder: 'Notes' %>
-  
-  <%= f.submit nil, class: 'btn' %>
-  <% end %>
+  <%= f.text_area :notes %>
 
-  <%= link_to 'All Appointments', pet_appointments_path %> |
-  <%= link_to 'Back to Pets', pets_path %>
+  <%= f.submit nil, class: 'btn light-blue darken-3' %>
+  <% end %>
+  <hr />
+  <br />
+  <%= link_to 'All Appointments', pet_appointments_path(@pet), class: 'btn light-blue darken-3' %>
+  <br />
+  <br />
+  <%= link_to 'Back to Pets', pets_path, class: 'btn light-blue darken-3' %>

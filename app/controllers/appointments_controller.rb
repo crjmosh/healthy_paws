@@ -39,8 +39,13 @@ class AppointmentsController < ApplicationController
   end
 
   private
+
+  def set_pet
+    @pet = Pet.find(params[:pet_id])
+  end
+
   def set_appointment
-    @appointment = Pet.appointments.find(params[:id])
+    @appointment = @pet.appointments.find(params[:id])
   end
 
   def appointment_params

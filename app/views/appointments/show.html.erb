@@ -1,18 +1,23 @@
-<div class="center">
-  <h1>Appointment For: <%= @pet.name %></h1>
-
-  <div>
-    <p>Title: <%= @pet.appointment.title %> </p>
-    <br />
-    <p>Date: <%= @pet.appointment.date  %></p>
-    <br />
-    <p>Time: <%= @pet.appointment.time %> </p>
-    <br />
-    <p>Location: <%= @pet.appointment.location %> </p>
-    <br />
-    <p>Notes: <%= @pet.appointment.notes %> </p>
+<div class="row center">
+  <div class="col s12">
+    <div class="card-panel">
+      <h3 class="light-blue-text text-darken-3">Appointment For: <%= @pet.name %></h3>
+      <hr />
+        <p>Title: <%= @appointment.title %> </p>
+        <p>Date: <%= @appointment.date.strftime("%B %d, %Y")  %></p>
+        <p>Time: <%= @appointment.time.strftime("%I:%M%p") %> </p>
+        <p>Location: <%= @appointment.location %> </p>
+        <p>Notes: <%= @appointment.notes %> </p>
+      </div>
+    </div>
   </div>
-</div>
 
-<%= link_to 'All Appointments', pet_appointments_path %> |
-<%= link_to 'Back to Pets', pets_path %>
+<hr />
+
+<%= link_to 'Edit Appointment', edit_pet_appointment_path(@pet), class: 'btn light-blue darken-3' %>
+<br />
+<br />
+<%= link_to 'All Appointments', pet_appointments_path, class: 'btn light-blue darken-3' %>
+<br />
+<br />
+<%= link_to 'Back to Pets', pets_path, class: 'btn light-blue darken-3' %>

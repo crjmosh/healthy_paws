@@ -1,12 +1,13 @@
 <h1> Appointments </h1>
+<hr />
 
 <% if @pet.appointments.any? %>
-  <h5>Appointments</h5>
+
   <ul>
     <% @pet.appointments.order(:date, :time).each do |ap| %>
       <li>
-        <%= ap.pet.name %> - <%= ap.date.strftime("%B %d, %Y") %> - <%= ap.time.strftime("%I:%M%p") %>
-        <%= link_to 'Remove', pet_appointment_path(ap), method: :delete %>
+        <%= ap.pet.name %> - <%= ap.date.strftime("%B %d, %Y") %> - <%= ap.time.strftime("%I:%M%p") %> |
+        <%= link_to 'Remove', pet_appointment_path(@pet, ap), method: :delete, data: {confirm: "Really remove?"} %>
       </li>
     <% end %>
   </ul>
@@ -14,5 +15,8 @@
   <h5>No Appointments Found</h5>
 <% end %>
 
-<%= link_to 'All Pets', pets_path %>
-<%= link_to 'Edit', edit_pet_appointment_path(@pet, @appointment) %>
+<hr />
+<%= link_to 'Add Appointment', new_pet_appointment_path(@pet), class: 'btn light-blue darken-3' %>
+<br />
+<br />
+<%= link_to 'All Pets', pets_path, class: 'btn light-blue darken-3'  %>
