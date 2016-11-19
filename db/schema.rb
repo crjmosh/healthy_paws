@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 20161119173411) do
     t.time     "time"
     t.text     "location"
     t.text     "notes"
+    t.integer  "pet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["pet_id"], name: "index_appointments_on_pet_id", using: :btree
   end
 
   create_table "attachinary_files", force: :cascade do |t|
@@ -44,8 +46,10 @@ ActiveRecord::Schema.define(version: 20161119173411) do
     t.string   "title"
     t.date     "date"
     t.text     "notes"
+    t.integer  "pet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["pet_id"], name: "index_medicals_on_pet_id", using: :btree
   end
 
   create_table "pets", force: :cascade do |t|
@@ -59,8 +63,10 @@ ActiveRecord::Schema.define(version: 20161119173411) do
     t.string   "picture"
     t.text     "notes"
     t.text     "gender"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,4 +92,7 @@ ActiveRecord::Schema.define(version: 20161119173411) do
     t.index ["uid"], name: "index_users_on_uid", using: :btree
   end
 
+  add_foreign_key "appointments", "pets"
+  add_foreign_key "medicals", "pets"
+  add_foreign_key "pets", "users"
 end

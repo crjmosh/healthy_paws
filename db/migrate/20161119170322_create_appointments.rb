@@ -6,6 +6,7 @@ class CreateAppointments < ActiveRecord::Migration[5.0]
       t.time :time
       t.text :location
       t.text :notes
+      t.belongs_to :pet, foreign_key: true
 
       t.timestamps
     end

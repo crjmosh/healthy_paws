@@ -11,6 +11,7 @@ class CreatePets < ActiveRecord::Migration[5.0]
       t.string :picture
       t.text :notes
       t.text :gender
+      t.belongs_to :user, foreign_key: true
 
       t.timestamps
     end
