@@ -7,10 +7,10 @@
         <p> Notes: <%= @medical.notes %> </p>
     </div>
   </div>
-</div>
 
+<%= link_to "Edit Medical History", edit_pet_medical_path(@pet, @medical), class: 'btn blue darken-3' %>
+<br /><br />
 <%= link_to "View Medical History", pet_medicals_path(@pet), class: 'btn blue darken-3' %>
-<br />
-<%= link_to "View Appointments", pet_appointments_path(@pet), class: 'btn blue darken-3' %>
-<br />
+<br /><br />
 <%= link_to "My Pets", pets_path, class: 'btn blue darken-3' %>
+</div>

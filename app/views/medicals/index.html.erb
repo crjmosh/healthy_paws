@@ -1,26 +1,32 @@
-<h1> <%= @pet.name %>'s Medical Histroy </h1>
-<br />
+<div class="center">
+  <h1> <%= @pet.name %>'s Medical Histroy </h1>
+  <br />
 
-<% if @medicals.any? %>
-  <ul class="collapsible" data-collapsible="expandable">
-    <% @medicals.order(:date).each do |medical| %>
-      <li>
-        <div class="collapsible-header light-blue-text text-darken-3"> <%= "#{medical.title} - #{medical.date.strftime("%B %d, %Y")}" %> </div>
-        <div class="collapsible-body">
-          <p>Notes: <%= medical.notes %></p>
-          <%= link_to 'Edit', edit_pet_medical_path(@pet, medical), class: 'btn blue darken-3' %>
-          <%= link_to 'Delete', pet_medical_path(@pet, medical), method: :delete, data:
-          {confirm: 'Really remove selected history? This action cannot be undone'}, class: 'btn blue darken-3' %>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <h3>No Medical History, Please Create One!</h3>
-<% end %>
+  <div class="container">
+  <% if @medicals.any? %>
+    <ul class="collapsible" data-collapsible="expandable">
+      <% @medicals.order(:date).each do |medical| %>
+        <li>
+          <div class="collapsible-header light-blue-text text-darken-3"> <%= "#{medical.title} - #{medical.date.strftime("%B %d, %Y")}" %> </div>
+          <div class="collapsible-body light-blue darken-3">
+            <p>Notes: <%= medical.notes %></p>
+            <%= link_to 'Edit', edit_pet_medical_path(@pet, medical), class: 'btn white light-blue-text text-darken-3' %>
+            <%= link_to 'Delete', pet_medical_path(@pet, medical), method: :delete, data:
+            {confirm: 'Really remove selected history? This action cannot be undone'}, class: 'btn white light-blue-text text-darken-3' %>
+            <br /><br />
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <h3>No Medical History, Please Create One!</h3>
+  <% end %>
 
-<%= link_to "Add Medical History", new_pet_medical_path(@pet), class: 'btn blue darken-3' %>
-<br />
-<%= link_to "View Appointments", pet_appointments_path(@pet), class: 'btn blue darken-3' %>
-<br />
-<%= link_to "My Pets", pets_path, class: 'btn blue darken-3' %>
+  <%= link_to "Add Medical History", new_pet_medical_path(@pet), class: 'btn blue darken-3' %>
+  <br /><br />
+  <%= link_to "View Appointments", pet_appointments_path(@pet), class: 'btn blue darken-3' %>
+  <br /><br />
+  <%= link_to "My Pets", pets_path, class: 'btn blue darken-3' %>
+  <br /><br />
+  </div>
+</div>

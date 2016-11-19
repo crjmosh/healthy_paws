@@ -1,8 +1,7 @@
 <div class="row center">
   <div class="col s12">
     <div class="card-panel">
-      <h3 class="light-blue-text text-darken-3">Appointment For: <%= @pet.name %></h3>
-      <hr />
+      <h3 class="light-blue-text text-darken-3">Appointment For <%= @pet.name %></h3>
         <p>Title: <%= @appointment.title %> </p>
         <p>Date: <%= @appointment.date.strftime("%B %d, %Y")  %></p>
         <p>Time: <%= @appointment.time.strftime("%I:%M%p") %> </p>
@@ -10,14 +9,13 @@
         <p>Notes: <%= @appointment.notes %> </p>
       </div>
     </div>
-  </div>
 
-<hr />
 
-<%= link_to 'Edit Appointment', edit_pet_appointment_path(@pet), class: 'btn light-blue darken-3' %>
-<br />
-<br />
-<%= link_to 'All Appointments', pet_appointments_path, class: 'btn light-blue darken-3' %>
-<br />
-<br />
-<%= link_to 'Back to Pets', pets_path, class: 'btn light-blue darken-3' %>
+  <%= link_to 'Edit Appointment', edit_pet_appointment_path(@pet), class: 'btn light-blue darken-3' %>
+  <br />
+  <br />
+  <%= link_to 'All Appointments', pet_appointments_path, class: 'btn light-blue darken-3' %>
+  <br />
+  <br />
+  <%= link_to 'My Pets', pets_path, class: 'btn light-blue darken-3' %>
+</div>

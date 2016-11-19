@@ -1,31 +1,36 @@
-<h1> Appointments </h1>
+<div class="center">
+  <h1> Appointments </h1>
 
-<% if @pet.appointments.any? %>
- <ul class="collapsible" data-collapsible="expandable">
-   <% @pet.appointments.order(:date, :time).each do |ap| %>
-     <li>
-       <div class="collapsible-header light-blue-text text-darken-3"> <%= "#{ap.title} - #{ap.date.strftime("%B %d, %Y")}" %> </div>
-       <div class="collapsible-body">
-         <h6><%= ap.pet.name %> - <%= ap.date.strftime("%B %d, %Y") %> - <%= ap.time.strftime("%I:%M%p") %></h6>
-         <h6>Title: <%= ap.title %> </h6>
-         <h6>Location: <%= ap.location %> </h6>
-         <h6>Notes: <%= ap.notes %> </h6>
-         <%= link_to 'Edit', edit_pet_appointment_path(@pet, ap), class: 'btn light-blue darken-3' %>
-         <%= link_to 'Delete', pet_appointment_path(@pet, ap), method: :delete, data:
-         {confirm: 'Really remove appointment? This action cannot be undone'}, class: 'btn light-blue darken-3' %>
-       </div>
-     </li>
-   <% end %>
- </ul>
-<% else %>
- <h3>No Appointments, Please Create One!</h3>
-<% end %>
+  <div class="container">
+    <% if @pet.appointments.any? %>
+     <ul class="collapsible" data-collapsible="expandable">
+       <% @pet.appointments.order(:date, :time).each do |ap| %>
+         <li>
+           <div class="collapsible-header light-blue-text text-darken-3"> <%= "#{ap.title} - #{ap.date.strftime("%B %d, %Y")}" %> </div>
+           <div class="collapsible-body light-blue darken-3">
+             <p><%= ap.pet.name %> - <%= ap.date.strftime("%B %d, %Y") %> - <%= ap.time.strftime("%I:%M%p") %><br />
+             Title: <%= ap.title %> <br />
+             Location: <%= ap.location %> <br />
+             Notes: <%= ap.notes %> </p>
+             <%= link_to 'Edit', edit_pet_appointment_path(@pet, ap), class: 'btn white light-blue-text text-darken-3' %>
+             <%= link_to 'Delete', pet_appointment_path(@pet, ap), method: :delete, data:
+             {confirm: 'Really remove appointment? This action cannot be undone'}, class: 'btn white light-blue-text text-darken-3' %>
+             <br /><br />
+           </div>
+         </li>
+       <% end %>
+     </ul>
+    <% else %>
+     <h3>No Appointments, Please Create One!</h3>
+    <% end %>
 
 
-<%= link_to 'Add Appointment', new_pet_appointment_path(@pet), class: 'btn light-blue darken-3' %>
-<br />
-<br />
-<%= link_to 'All Pets', pets_path, class: 'btn light-blue darken-3'  %>
-<br />
-<br />
-<%= link_to 'Medical History', pet_medicals_path(@pet), class: 'btn light-blue darken-3' %>
+    <%= link_to 'Add Appointment', new_pet_appointment_path(@pet), class: 'btn light-blue darken-3' %>
+    <br />
+    <br />
+    <%= link_to 'View Medical History', pet_medicals_path(@pet), class: 'btn light-blue darken-3' %>
+    <br />
+    <br />
+    <%= link_to 'My Pets', pets_path, class: 'btn light-blue darken-3'  %>
+  </div>
+</div>
