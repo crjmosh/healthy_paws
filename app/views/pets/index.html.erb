@@ -1,7 +1,30 @@
-<h1>Welcome, <%= current_user.first_name %>!</h1>
+<h1 class="center">Welcome, <%= current_user.first_name %>!</h1>
 
 <% if @pets.any? %>
-	
+	<div class="col s12 m7">
+	<% @pets.each do |pet| %>
+    <h2 class="header"><%= pet.name %></h2>
+    <div class="card horizontal">
+      <div class="card-image">
+	    	<% if pet.picture? %>
+	        <img src="http://lorempixel.com/100/190/nature/6">
+      	<% end %>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Pet info.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+	<% end %>
+  </div>
 <% else %>
-	<h4>No pets have been added yet.</h4>
+	<h3 class="center">No pets have been added yet.</h3>
 <% end %>
+
+<div class="center">
+	<%= link_to 'Add Pet', new_pet_path, class: 'btn light-blue darken-3' %>
+</div>

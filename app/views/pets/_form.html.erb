@@ -1,0 +1,62 @@
+<div class="row">
+	<%= form_for @pet do |f| %>
+		
+		<div class="col s12 m6">
+			<%= f.label :name %> <sub><i>*required</i></sub>
+			<%= f.text_field :name, required: true %>
+		</div>
+
+		<div class="col s12 m6">
+			<%= f.label :dob %>
+			<%= f.date_field :dob %>
+		</div>
+
+		<div class="input-field col s12 m6">
+			<%= f.label :gender %>
+			<br>
+			<%= f.select :gender, options_for_select(['male', 'female']) %>
+		</div>
+
+		<div class="input-field col s12 m6">
+			<%= f.label :species %>
+			<br>
+			<%= f.select :species, options_for_select(['dog', 'cat']) %>
+		</div>
+
+		<div class="col s12 m6">
+			<%= f.label :breed %>
+			<%= f.text_field :breed %>
+		</div>
+
+		<div class="col s12 m6">
+			<%= f.label :microchip %>
+			<%= f.text_field :microchip %>
+		</div>
+
+		<div class="col s12 m6">
+			<%= f.label :primary_vet %>
+			<%= f.text_field :primary_vet %>
+		</div>
+
+		<div class="col s12 m6">
+			<%= f.label :fixed, 'Spayed/Neutered' %>
+			<br>
+			<%= f.select :fixed, options_for_select(['yes', 'no']) %>
+		</div>
+
+		<div class="col s12 l8 offset-l2">
+			<%= f.label :notes %>
+			<%= f.text_area :notes %>
+		</div>
+
+		<div class="col s12 m6">
+		<%= f.label :picture %>
+		<%= f.attachinary_file_field :picture %>
+		</div>
+
+		<div class="center col s12">
+			<%= f.submit class: "btn light-blue darken-3" %>
+		</div>
+
+	<% end %>
+</div>

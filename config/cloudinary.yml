@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dupyswzaa7
+  api_key: '272653422887512'
+  api_secret: VbM3gj8hl40jbnoYn0PZ4SDPnS8
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dupyswzaa7
+  api_key: '272653422887512'
+  api_secret: VbM3gj8hl40jbnoYn0PZ4SDPnS8
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dupyswzaa7
+  api_key: '272653422887512'
+  api_secret: VbM3gj8hl40jbnoYn0PZ4SDPnS8
+  enhance_image_tag: true
+  static_image_support: false
