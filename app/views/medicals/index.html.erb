@@ -1,15 +1,15 @@
-<h1> <%= @pet.name %> Medical Histroy </h1>
+<h1> <%= @pet.name.pluralize %> Medical Histroy </h1>
 <br />
 
 <% if @medicals.any? %>
-  <ul class="collapsible" data-collapsible="accordion">
+  <ul class="collapsible" data-collapsible="expandable">
     <% @medicals.each do |medical| %>
       <li>
-        <div class="collapsible-header"> <%= "#{medical.title}, #{medical.date}" %> </div>
+        <div class="collapsible-header light-blue-text text-darken-3"> <%= "#{medical.title} - #{medical.date.strftime("%B %d, %Y")}" %> </div>
         <div class="collapsible-body">
           <p>Notes: <%= medical.notes %></p>
-          <%= link_to 'Edit', edit_robot_part_path(@pet, medical), class: 'btn' %>
-          <%= link_to 'Delete', robot_part_path(@pet, medical), method: :delete, data: {confirm: 'Really Delete?'}, class: 'btn' %>
+          <%= link_to 'Edit', edit_pet_medical_path(@pet, medical), class: 'btn blue darken-3' %>
+          <%= link_to 'Delete', pet_medical_path(@pet, medical), method: :delete, data: {confirm: 'Really Delete?'}, class: 'btn blue darken-3' %>
         </div>
       </li>
     <% end %>
@@ -18,5 +18,8 @@
   <h3>No Medical History, Please Create One!</h3>
 <% end %>
 
+<%= link_to "Add Medical History", new_pet_medical_path(@pet), class: 'btn blue darken-3' %>
 <br />
-<%= link_to "My Pets", pets_path, class: 'btn' %>
+<%= link_to "#{@pet.name.pluralize} Appointments", pet_appointments_path(@pet), class: 'btn blue darken-3' %>
+<br />
+<%= link_to "My Pets", pets_path, class: 'btn blue darken-3' %>

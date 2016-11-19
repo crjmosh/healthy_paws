@@ -48,7 +48,7 @@ class MedicalsController < ApplicationController
     end
 
     def set_medical
-      @medical = @pet.find(params[:id])
+      @medical = @pet.medicals.find(params[:id])
     end
 
     def medical_params

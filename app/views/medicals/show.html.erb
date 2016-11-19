@@ -1,9 +1,11 @@
-<h1> <%= @medical.title %> For <%= @pet.name %> </h1>
+<h1> <%= @pet.name %> - <%= @medical.title %> </h1>
 <br />
 
-<p> Date: <%= @meidcal.date.strftime("%B %d, %Y") %> </p>
-<p> Notes: <%= @meidcal.notes %> </p>
+<p> Date: <%= @medical.date.strftime("%B %d, %Y") %> </p>
+<p> Notes: <%= @medical.notes %> </p>
 
-<%= link_to "#{@pet.name.pluralize} Medical History", pet_medicals_path(@pet), class: 'btn' %>
+<%= link_to "#{@pet.name.pluralize} Medical History", pet_medicals_path(@pet), class: 'btn blue darken-3' %>
 <br />
-<%= link_to "My Pets", pets_path, class: 'btn' %>
+<%= link_to "#{@pet.name.pluralize} Appointments", pet_appointments_path(@pet), class: 'btn blue darken-3' %>
+<br />
+<%= link_to "My Pets", pets_path, class: 'btn blue darken-3' %>
