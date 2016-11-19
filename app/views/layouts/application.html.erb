@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Healthy Paws</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= cloudinary_js_config %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+	  <%= render(partial: 'layouts/navbar') %>
+
+  <% flash.each do |key, value| %>
+  		<div class="flash <%= key %>">
+	  		<%= value %>
+  		</div>
+  	<% end %>
+  	<div class="container">
+	    <%= yield %>
+    </div>
+  </body>
+</html>
