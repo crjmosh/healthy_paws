@@ -1,21 +1,27 @@
 <h1> Appointments </h1>
-<hr />
 
 <% if @pet.appointments.any? %>
-
-  <ul>
-    <% @pet.appointments.order(:date, :time).each do |ap| %>
-      <li>
-        <%= ap.pet.name %> - <%= ap.date.strftime("%B %d, %Y") %> - <%= ap.time.strftime("%I:%M%p") %> |
-        <%= link_to 'Remove', pet_appointment_path(@pet, ap), method: :delete, data: {confirm: "Really remove?"} %>
-      </li>
-    <% end %>
-  </ul>
+ <ul class="collapsible" data-collapsible="expandable">
+   <% @pet.appointments.order(:date, :time).each do |ap| %>
+     <li>
+       <div class="collapsible-header light-blue-text text-darken-3"> <%= "#{ap.title} - #{ap.date.strftime("%B %d, %Y")}" %> </div>
+       <div class="collapsible-body">
+         <h6><%= ap.pet.name %> - <%= ap.date.strftime("%B %d, %Y") %> - <%= ap.time.strftime("%I:%M%p") %></h6>
+         <h6>Title: <%= ap.title %> </h6>
+         <h6>Location: <%= ap.location %> </h6>
+         <h6>Notes: <%= ap.notes %> </h6>
+         <%= link_to 'Edit', edit_pet_appointment_path(@pet, ap), class: 'btn light-blue darken-3' %>
+         <%= link_to 'Delete', pet_appointment_path(@pet, ap), method: :delete, data:
+         {confirm: 'Really remove appointment? This action cannot be undone'}, class: 'btn light-blue darken-3' %>
+       </div>
+     </li>
+   <% end %>
+ </ul>
 <% else %>
-  <h5>No Appointments Found</h5>
+ <h3>No Appointments, Please Create One!</h3>
 <% end %>
 
-<hr />
+
 <%= link_to 'Add Appointment', new_pet_appointment_path(@pet), class: 'btn light-blue darken-3' %>
 <br />
 <br />
