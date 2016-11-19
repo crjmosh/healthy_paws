@@ -1,20 +1,22 @@
 <h1 class="center">Welcome, <%= current_user.first_name %>!</h1>
 
 <% if @pets.any? %>
-	<h3>Your Pets:</h3>
+	<h3 class="center">Your Pets</h3>
 	<div class="col s12 m7">
 	<% @pets.each do |pet| %>
     <div class="card horizontal">
       <div class="card-image">
 	    	<% if pet.picture? %>
 	        <%= cl_image_tag(pet.picture.path, { size:'250x250', crop: :thumb, gravity: :face}) %>
+	       <% else %>
+    			<%= image_tag("no-photo.jpg") %>
       	<% end %>
       </div>
       <div class="card-stacked">
         <div class="card-content">
           <h4 class="light-blue-text text-darken-3"><%= pet.name %></h4>
           <p>Breed: <%= pet.breed %></p>
-          <p>Date of Birth: <%= pet.dob %></p>
+          <p>Date of Birth: <%= pet.dob.strftime("%B %d, %Y") %></p>
           <p>Primary Vet: <%= pet.primary_vet %></p>
         </div>
         <div class="card-action">

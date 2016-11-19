@@ -4,7 +4,11 @@
     <div class="card-panel">
     	<%= link_to '<< Back to All Pets', pets_path, class: 'left' %> <br />
     	<h3 class="light-blue-text text-darken-3"><%= @pet.name %></h3>
-    	<%= cl_image_tag(@pet.picture.path, { size:'200x200', crop: :thumb, gravity: :face}) %>
+    	<% if @pet.picture? %>
+    		<%= cl_image_tag(@pet.picture.path, { size:'250x250', crop: :thumb, gravity: :face}) %>
+    	<% else %>
+    		<%= image_tag("no-photo.jpg") %>
+    	<% end %>
       <div class="row">
       	<div class="col s12 m6">
 		      <p><b class="light-blue-text text-darken-3">Date of Birth:</b> <%= @pet.dob.strftime("%B %d, %Y") %></p>
