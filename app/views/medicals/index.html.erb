@@ -3,7 +3,7 @@
 
 <% if @medicals.any? %>
   <ul class="collapsible" data-collapsible="expandable">
-    <% @medicals.each do |medical| %>
+    <% @medicals.order(:date).each do |medical| %>
       <li>
         <div class="collapsible-header light-blue-text text-darken-3"> <%= "#{medical.title} - #{medical.date.strftime("%B %d, %Y")}" %> </div>
         <div class="collapsible-body">
