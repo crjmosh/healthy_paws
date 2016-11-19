@@ -1,4 +1,15 @@
-html {
-	background-color: #ccc;
+body {
+	background-image: url(asset-path('paw.jpg'));
+	background-color: #630;
+	background-attachment: fixed;
+	background-position: bottom right;
+	background-repeat: no-repeat;
 	color: white;
+}
+
+input:focus {
+  border-bottom: 1px solid #1E88E5 !important;
+  -webkit-box-shadow: 0 1px 0 0 #1E88E5 !important;
+  -moz-box-shadow: 0 1px 0 0 #1E88E5 !important;
+  box-shadow: 0 1px 0 0 #1E88E5 !important;
 }
