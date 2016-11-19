@@ -1,11 +1,10 @@
-<h1> <%= @pet.name %> - <%= @medical.title %> </h1>
 <br />
-
 <div class="row center">
   <div class="col s12">
     <div class="card-panel">
-      <p> Date: <%= @medical.date.strftime("%B %d, %Y") %> </p>
-      <p> Notes: <%= @medical.notes %> </p>
+      <h3 class="light-blue-text text-darken-3"> <%= @pet.name %> - <%=@medical.title %> </h3>
+        <p> Date: <%= @medical.date.strftime("%B %d, %Y") %> </p>
+        <p> Notes: <%= @medical.notes %> </p>
     </div>
   </div>
 </div>
