@@ -1,2 +1,18 @@
-<h1>Appointments#show</h1>
-<p>Find me in app/views/appointments/show.html.erb</p>
+<div class="center">
+  <h1>Appointment For: <%= @pet.name %></h1>
+
+  <div>
+    <p>Title: <%= @pet.appointment.title %> </p>
+    <br />
+    <p>Date: <%= @pet.appointment.date  %></p>
+    <br />
+    <p>Time: <%= @pet.appointment.time %> </p>
+    <br />
+    <p>Location: <%= @pet.appointment.location %> </p>
+    <br />
+    <p>Notes: <%= @pet.appointment.notes %> </p>
+  </div>
+</div>
+
+<%= link_to 'All Appointments', pet_appointments_path %> |
+<%= link_to 'Back to Pets', pets_path %>

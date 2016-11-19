@@ -1,2 +1,18 @@
-<h1>Appointments#index</h1>
-<p>Find me in app/views/appointments/index.html.erb</p>
+<h1> Appointments </h1>
+
+<% if @pet.appointments.any? %>
+  <h5>Appointments</h5>
+  <ul>
+    <% @pet.appointments.order(:date, :time).each do |ap| %>
+      <li>
+        <%= ap.pet.name %> - <%= ap.date.strftime("%B %d, %Y") %> - <%= ap.time.strftime("%I:%M%p") %>
+        <%= link_to 'Remove', pet_appointment_path(ap), method: :delete %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h5>No Appointments Found</h5>
+<% end %>
+
+<%= link_to 'All Pets', pets_path %>
+<%= link_to 'Edit', edit_pet_appointment_path(@pet, @appointment) %>

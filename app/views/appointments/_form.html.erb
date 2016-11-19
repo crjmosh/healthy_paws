@@ -1,0 +1,25 @@
+<%= form_for @appointment do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, required: true, placeholder: 'Title'  %>
+
+  <%= f.label :pet_id %>
+  <%= f.select :pet_id, options_for_select(@pet) %>
+
+  <%= f.label :date %>
+  <%= f.date_field :date, required: true, placeholder: 'Date' %>
+
+  <%= f.label :time %>
+  <%= f.time_field :time, placeholder: 'Time' %>
+
+  <%= f.label :location %>
+  <%= f.text_area :location, placeholder: 'Location' %>
+
+  <%= f.label :notes %>
+  <%= f.text_area :notes, placeholder: 'Notes' %>
+  
+  <%= f.submit nil, class: 'btn' %>
+  <% end %>
+
+  <%= link_to 'All Appointments', pet_appointments_path %> |
+  <%= link_to 'Back to Pets', pets_path %>
